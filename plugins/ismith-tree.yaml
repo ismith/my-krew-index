@@ -1,0 +1,24 @@
+apiVersion: krew.googlecontainertools.github.com/v1alpha2
+kind: Plugin
+metadata:
+  name: ismith-tree
+spec:
+  version: v0.0.0
+  homepage: https://github.com/ismith/my-krew-index
+  shortDescription: Show a tree of object hierarchies through ownerReferences
+  description: |
+    This plugin shows sub-resources of a specified Kubernetes API object in a
+    tree view in the command-line. The parent-child relationship is discovered
+    using ownerReferences on the child object.
+  caveats: |
+    * For resources that are not in default namespace, currently you must
+      specify -n/--namespace explicitly (the current namespace setting is not
+      yet used).
+  platforms:
+  - selector:
+      matchLabels:
+        os: linux
+        arch: amd64
+    uri: http://user:pass@localhost:8180/foo/tar.gz
+    sha256: f4a3230d46b824889fca56525d051aad70815965a94623388ec0b5dc71781790
+    bin: kubectl-tree
